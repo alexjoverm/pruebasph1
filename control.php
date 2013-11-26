@@ -11,7 +11,7 @@ $anyo = 365 * 24 * 60 * 60;
 $time = time();
 
 $guardar_user = encriptador($user,"5");
-
+ 
 //CAMBIAR PARA CONSULTAR A LA BBDD
  
 	if( ( $id = Login($user,$pass) ) > 0 ){
