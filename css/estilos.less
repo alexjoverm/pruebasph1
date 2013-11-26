@@ -1,0 +1,258 @@
+/************** MARCA EL DISEÑO Y ESTILOS DE VISUALIZACION **********/
+@import url("variables.less");
+@import url("clases_param.less");
+
+
+ /** Listas **/
+.lista2{
+    color: white;
+    display: block !important;
+    margin-top: 8px;
+    display: table; 
+    text-align: center;
+    padding: 0;
+
+    &>li{
+        float: left;
+        list-style: none;
+
+        &>a{
+            padding: @padding_s;
+            text-decoration: none;
+
+            .transicion(all 0.5s ease);
+            &:hover,&:focus{
+                background: @color_primario;
+            }
+        }
+    }
+
+    .active{
+        color: white;
+        &>a{
+            background: @color_primario;
+            color: white;
+
+        }
+    }
+}
+
+.lista{
+    .lista(@color_lista,@color_lista_h,#fff,#888);
+    margin: 15px auto;
+    /* QUITAR*/
+    text-align:center;
+
+    .active{
+        
+        border-bottom-color: lighten(@color_compl,8%);
+
+        &>a{
+            background: @color_primario;
+        }
+        
+    }
+}
+
+#paginador{
+
+    display:table;
+    margin: 0 auto;
+    text-align: center;
+
+    &>ul{
+        list-style: none;
+
+        &>li{
+            padding: @padding_s;
+            float: left;
+        }
+
+        &>li.elem_desactivado{
+            color:#bbb;
+        }
+
+        &>li.pag_actual{
+            color: #fff;
+        }
+
+        a:hover{
+            color:@color_compl;   
+        }
+    }
+
+}
+
+.lista_horiz{
+    display: table;
+    
+    text-align: center;
+
+    &>li { float: left;}
+}
+
+.lista_ilum{
+    &>li{
+        .efecto_borde_color(4px,@color_compl);
+        .transicion(all 0.6s ease);
+        padding: @padding_nav;
+        width: 81px;
+    }
+}
+
+
+  /** Botones **/
+
+.boton{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:@tam_base_fuente_em ;
+    display: inline-block;
+    padding: @padding_s;
+    border: 1px solid transparent;
+    text-decoration: none;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    .formato_texto(@color_fuente,normal,bold);
+    
+    
+    .transicion(all 0.4s ease);
+    .bordeRedondeado(5px);
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+.boton_primario{
+    .botonColor(@color_primario_oscuro, @color_primario);
+}
+
+.boton_compl{
+    .botonColor(@color_compl_claro, @color_compl);
+}
+
+.boton_claro{
+    .botonColor(#fff,#eee);
+    border-color: #ccc;
+    color: #555;
+}
+
+.boton_buscar{
+    margin-top: 10px;
+    width: 250px;
+}
+
+
+  /** Formularios **/
+.input{
+    .input(#fff,#ccc,#555);
+}
+
+.input_text{
+    height: 20px;
+    width: 90%;
+    max-width: 200px;
+}
+
+.input_ini{
+    width: 38%;
+    height: 18px;
+}
+
+a,input {
+    .glow(@color_compl);
+}
+
+form div[class*="col"]{
+    padding: 15px 0;
+}
+
+/**** Imagenes *****/
+
+.img_responsiva{
+    width: 100%;
+    height: auto;
+}
+
+
+/** Fuentes **/
+.resaltado{
+    .formato_texto(@color_compl,normal,bold); 
+    font-size: 1.55rem;
+}
+
+.cursiva{
+   .formato_texto(#999,italic,normal);
+}  
+
+.titulo_3{
+    font-size: @tit3;
+    color:@color_compl;
+    margin-bottom: @tit3_margin;
+}
+
+.derecha{
+    text-align: right;
+    float: right !important;
+}
+
+form.centrar_texto{
+    text-align: center;
+    label{
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+}
+
+form .fecha {
+    width: 80px;
+}
+
+#contenido label.en_linea{
+    display: inline;
+    margin: 0 8px;
+    font-weight: normal;
+}
+
+.verde{
+    background-color: @verde;
+}
+
+.rojo{
+    background-color: @rojo;
+}
+
+.animacion_ordenar{
+    .transicion(all 0.6s ease);
+}
+
+.activar_animacion{
+    transform: scale(0);
+    -ms-transform: scale(0); /* IE 9 */
+    -webkit-transform: scale(0); /* Safari and Chrome */
+    opacity:0.0; 
+    filter:alpha(opacity=0); /* For IE8 and earlier */
+}
+
+.no_importante{
+    color: #ccc;
+}
+
+.incorrecto{
+    color: #FF582F;
+    text-align: center;
+}
+
+.fondo_album{
+
+    opacity:0.3;
+    filter:alpha(opacity=30); /* For IE8 and earlier */
+    background-size: cover;
+    background-origin: border-box;
+    background-repeat:no-repeat;
+    background-position:center; 
+
+}

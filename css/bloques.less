@@ -1,0 +1,392 @@
+/****************** BLOQUES Y ESTRUCTURADO ******************/
+@import url("variables.less");
+@import url("clases_param.less");
+
+/** Generales **/
+html {
+    font-size:@tam_base_fuente ; 
+    background: @color_fondo_cabpie;  
+}
+
+body {
+    
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:@tam_base_fuente_em ;
+    line-height: 1.428571429;
+    color: @color_fuente;
+    background-color:@color_fondo ;  
+    padding: 0px;
+    margin: 0px ;
+
+}
+
+a {
+    color:@color_primario;
+    text-decoration: none;
+    .transicion(all 0.5s ease);
+    
+    &:hover, &:focus {
+        color: #FFF;
+        text-decoration: underline;
+    }
+}
+
+hr {
+
+    border: 1px solid @color_compl;
+    border-top: 0px;
+    margin-top: 20px;
+    opacity: 0.25;
+
+}
+
+#contenido label {
+
+    display: block;
+}
+
+
+/** Bloques principales **/
+
+
+#menu_user{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    background: #444;
+    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    &>div>*{
+        float: left
+    }
+
+    & .pri_col{
+        width: 33%;
+        min-width: 175px;
+    }
+
+    & .seg_col{
+        width: 58.7%;
+    }
+}
+
+.span_menu{
+    margin-top:8px;
+    display:block;
+}
+
+#cabecera {
+    background-color: @color_fondo_cabpie;
+    font-size: @tam_base_fuente_em ;
+    padding: @padding_cab;
+    width: 100%;
+
+    .linea{
+        table-layout: fixed;
+    }
+}
+
+
+#cab_login{
+    label{
+        display: inline-block;
+        margin-right: 7px;
+        text-align: left;
+    }
+    p{ margin: 0 0 6px 0; }
+}
+
+#cab_logo{ 
+    
+    a{ display:block; max-width: 190px;}
+     
+}
+
+
+#contenido {
+    background: url('../img/fondo_contenido.png') repeat #222;
+
+    min-height: @alto_min_contenido;
+    .formato;
+       
+    .wrap_img{
+       // max-height:@alto_max_wrap_img;
+        float: left;
+        
+        .efecto_borde_color(5px,@color_compl); 
+        .box_shadow(0 0 50px #111 inset);
+        .transicion(all 0.5s ease);
+        
+        &:hover{
+            .box_shadow(0 0 65px #000 inset);
+        }
+        
+        .wrap_img_int{  
+            width: 100%;
+            overflow: hidden;
+            background: transparent;
+            .transicion(all 0.5s ease);
+             
+            &:hover{
+                background: black;
+            }
+
+            /* Defiminos las transiciones de la imagen */
+            a{
+                img.preview{
+                    .transicion(all 0.5s ease);
+                    /* Cuando ppasamos sobre la imagen */
+                    &:hover{
+                        opacity: 0.4;
+                        .zoom(1.15);
+                    }
+                }
+            }
+        }
+        
+        /* Clase para que no haga el */
+        .wrap_img_int_n{
+            width: 100%;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        a img{
+            height: auto;
+            width: 100%;
+        }
+
+        
+        /* Wrap del texto de una imagen*/
+        .wrap_img_texto{
+
+            
+            //height: @alto_wrap_texto;
+            text-align: center;
+            color: @color_fuente2;
+            
+            a{ color:@color_compl }
+            
+            p {
+                margin: 8px 0;    
+            }
+
+            a{ color:@color_compl; display: block;}
+        
+            p.resaltado{
+                color: @color_compl;
+                font-weight: bolder;
+            }
+        }            
+    }
+    
+}
+
+#contenido .detalle_wrap .wrap_img {
+    width: 100%;
+    max-width: 420px;
+    float: none;
+    margin: 0 auto;
+}
+
+#pie {
+    text-align: center;
+    background-color: @color_fondo_cabpie;
+    .formato;
+    .submenu {
+        margin-right: 1rem;
+        padding-right: 1rem;
+        border-right: 1px solid;    
+    }
+    >#pie_wrap>div{
+        margin: 15px 0;
+    }
+}
+
+/************* Otros ***************/
+  /** Bloques **/
+.clear{
+    width: 0px;
+    height: 0px;
+    clear: both;
+}
+
+.envoltura{
+    width: @wrap_principal;
+    margin: 0 auto;
+}
+
+.linea{
+   width: 100%;
+   display: table;
+   content: "";
+   margin: 18px auto;
+}
+
+.col7{
+    .colx(7);
+}
+
+.col5{
+    .colx(5);
+}
+.col4{
+    .colx(4);
+}
+.col3{
+    .colx(3);
+}
+.col2{
+    .colx(2);
+}
+.col1{
+    .colx(1);
+}
+
+.ult_col{
+    margin-right: 0 !important;
+}
+
+
+
+
+#pie_enlaces>ul{
+        max-width: 500px;
+    }
+
+
+/********   MEDIA QUERIES **********/
+
+
+//reordenamos lista
+@media only screen and (max-width: 1035px){
+    .lista_horiz{
+        width: 80%;
+        margin: 0 auto;
+
+        &>li{
+            width: 100%;
+            padding: 0;
+            float:none;
+            .efecto_borde_color(0px, #000);
+            .efecto_borde_color_left(3px,@color_compl);
+
+            a{
+                padding: @padding_nav_m;
+            }
+        }
+
+        .active{
+            .efecto_borde_color(0px, #000);
+            border-left-color: lighten(@color_compl, 8%);
+        }
+    }
+
+    #pie_enlaces>ul{
+        max-width: 200px;
+    }
+    
+}
+
+//Tablets portrait hacia abajo
+@media only screen and (max-width: 768px){
+    div[class*="col"],aside[class*="col"]{
+        width: 100%;
+        float: none;
+    }
+
+    #contenido{ 
+        min-height: 290px;
+        
+        .wrap_img{
+            margin: 7px auto;
+            float: none;
+            display: table;
+
+            .efecto_borde_color(0px, #000);
+            .efecto_borde_color_left(5px,@color_compl);
+
+            .wrap_img_int{
+                width: 38%;
+                max-width: 220px;
+                float: left;
+            }
+
+            .wrap_img_texto{
+                margin-top: 7%;
+            }
+        }
+
+
+        .detalle_wrap .wrap_img{
+            .efecto_borde_color_left(0px, #000);
+            .efecto_borde_color(5px,@color_compl);
+            
+        }     
+    }
+
+    #cabecera_wrap{
+        #cab_logo{
+            a{
+                margin: 0 auto;
+            }
+        }
+
+        #cab_login{
+            margin-top: 15px;
+
+            p{
+                float:none;
+            }
+
+            &.derecha{
+                float:none !important;
+                text-align: left !important;
+            }
+
+            label{
+                min-width: 79px;
+                max-width: 100px;
+                width: 30%;
+            }
+
+            .input_ini{
+                width: 45%;
+            }
+        }
+    }
+
+    hr {
+        display: block;
+    }
+
+}
+
+@media only screen and (max-width: 550px){
+    #menu_user{
+        height: 58px;
+
+        & seg_col{
+            width: 100%;
+        }
+    }
+}
+
+//smartphones landscape
+@media only screen and (max-width: 495px){
+
+    #contenido .wrap_img .wrap_img_int{
+        width: 46%;
+    }
+}
+
+//smartphones portrait (320px, pero comprobamos a partir de 399)
+@media only screen and (max-width: 399px){
+
+    #contenido .wrap_img .wrap_img_int{
+        width: 53%;
+    }
+}

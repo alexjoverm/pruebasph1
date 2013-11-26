@@ -1,0 +1,369 @@
+/****************** BLOQUES Y ESTRUCTURADO ******************/
+@import url("variables.less");
+@import url("clases_param.less");
+
+/** Generales **/
+html {
+    font-size: 1rem ; 
+    background: @color_fondo_cabpie;
+}
+
+body {
+    
+    width: 21cm;
+    font-family: "Times New Roman",serif;
+    font-size: 2rem ;
+    line-height: 1.428571429;
+    color: @color_fuente;
+    background-color: white ;  
+    padding: 0px;
+    margin: 0px ;
+    color: black !important;
+
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    .transicion(all 0.5s ease);
+    
+    &:hover/*, &:focus*/ {
+        color: #FFF;
+        text-decoration: underline;
+    }
+}
+
+hr {
+
+    border: 1px solid @color_compl;
+    border-top: 0px;
+    margin-top: 20px;
+    opacity: 0.25;
+    display: none;
+
+}
+
+#contenido label {
+
+    display: block;
+}
+
+
+/** Bloques principales **/
+
+#cabecera {
+    background-color: @color_fondo_cabpie;
+    font-size: @tam_base_fuente_em ;
+    padding: @padding_cab;
+    width: 100%;
+
+    .linea{
+        table-layout: fixed;
+    }
+}
+
+
+#cab_login{
+    label{
+        display: inline-block;
+        margin-right: 7px;
+        text-align: left;
+    }
+    p{ margin: 0 0 6px 0; }
+}
+
+#cab_logo{ 
+    
+    a{ display:block; max-width: 190px;}
+     
+}
+
+
+#contenido {
+    background: url('../img/fondo_contenido.png') repeat #222;
+
+    min-height: @alto_min_contenido;
+    .formato;
+       
+    .wrap_img{
+        width: 50% !important;
+        margin: 15px auto !important;
+       // max-height:@alto_max_wrap_img;
+        float: none;
+        
+        .efecto_borde_color(5px,white); 
+        .box_shadow(0 0 50px #111 inset);
+        .transicion(all 0.5s ease);
+        
+        
+        
+        .wrap_img_int{  
+            width: 100%;
+            overflow: hidden;
+            background: transparent;
+            .transicion(all 0.5s ease);
+             
+            &:hover{
+                background: black;
+            }
+
+            /* Defiminos las transiciones de la imagen */
+            a{
+                img.preview{
+                    .transicion(all 0.5s ease);
+                    /* Cuando ppasamos sobre la imagen */
+                    &:hover{
+                        opacity: 0.4;
+                        .zoom(1.15);
+                    }
+                }
+            }
+        }
+        
+        /* Clase para que no haga el */
+        .wrap_img_int_n{
+            width: 100%;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        a img{
+            height: auto;
+            width: 100%;
+        }
+
+        
+        /* Wrap del texto de una imagen*/
+        .wrap_img_texto{
+            //height: @alto_wrap_texto;
+            text-align: center;
+            color: black;
+            
+            a{ color:black }
+            
+            p {
+                margin: 8px 0;    
+            }
+
+            a{ color:black; display: block;}
+        
+            p.resaltado{
+                color: black;
+                font-weight: bolder;
+            }
+        }            
+    }
+    
+}
+
+#contenido .detalle_wrap .wrap_img {
+    width: 100%;
+    max-width: 420px;
+    float: none;
+    margin: 0 auto;
+}
+
+#pie {
+    text-align: center;
+    background-color: @color_fondo_cabpie;
+    .formato;
+    .submenu {
+        margin-right: 1rem;
+        padding-right: 1rem;
+        border-right: 1px solid;    
+    }
+}
+
+/************* Otros ***************/
+  /** Bloques **/
+.clear{
+    width: 0px;
+    height: 0px;
+    clear: both;
+}
+
+.envoltura{
+    width: @wrap_principal;
+    margin: 0 auto;
+}
+
+.linea{
+   width: 100%;
+   display: table;
+   content: "";
+}
+
+
+
+.col5{
+    .colx(5);
+}
+.col4{
+    .colx(4);
+}
+.col3{
+    .colx(3);
+}
+.col2{
+    .colx(2);
+}
+
+.ult_col{
+    margin-right: 0 !important;
+}
+
+ /** Listas **/
+.lista{
+    .lista(@color_lista,@color_lista_h,#fff,#888);
+
+    /* QUITAR*/
+    text-align:center;
+
+    .active{
+        
+        border-bottom-color: lighten(@color_compl,8%);
+
+        &>a{
+            background: @color_primario;
+        }
+        
+    }
+}
+
+.lista_horiz{
+    display: table;
+    margin: 15px auto;
+    text-align: center;
+
+    &>li { float: left;}
+}
+
+
+  /** Botones **/
+
+.boton{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:@tam_base_fuente_em ;
+    display: inline-block;
+    padding: @padding_s;
+    border: 1px solid transparent;
+    text-decoration: none;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    .formato_texto(@color_fuente,normal,bold);
+    
+    
+    .transicion(all 0.4s ease);
+    .bordeRedondeado(5px);
+}
+
+.boton_primario{
+    .botonColor(@color_primario_oscuro, @color_primario);
+}
+
+.boton_compl{
+    .botonColor(@color_compl_claro, @color_compl);
+}
+
+.boton_claro{
+    .botonColor(#fff,#eee);
+    border-color: #ccc;
+    color: #555;
+}
+
+.boton_buscar{
+    margin-top: 25px;
+    width: 250px;
+}
+
+
+  /** Formularios **/
+.input{
+    .input(#fff,#ccc,#555);
+}
+
+.input_text{
+    height: 20px;
+    width: 90%;
+    max-width: 200px;
+}
+
+.input_ini{
+    width: 38%;
+    height: 18px;
+}
+
+a,input {
+    .glow(@color_compl);
+}
+
+form div[class*="col"]{
+    padding: 15px 0;
+}
+
+/**** Imagenes *****/
+
+.img_responsiva{
+    width: 100%;
+    height: auto;
+}
+
+
+/** Fuentes **/
+.resaltado{
+    .formato_texto(black,normal,bold); 
+    font-size: 1.55rem;
+}
+
+.cursiva{
+   .formato_texto(#999,italic,normal);
+}  
+
+.titulo_3{
+    font-size: @tit3;
+    color:black;
+    margin-bottom: @tit3_margin;
+}
+
+.derecha{
+    text-align: right;
+    float: right !important;
+}
+
+form.centrar_texto{
+    text-align: center;
+    label{
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+}
+
+form .fecha {
+    width: 80px;
+}
+
+#contenido label.en_linea{
+    display: inline;
+    margin: 0 8px;
+    font-weight: normal;
+}
+
+
+
+
+
+
+
+a:after{
+    content: " - "attr(href);
+    color: blue;
+}
+
+
+#cab_login{
+    display: none;
+}

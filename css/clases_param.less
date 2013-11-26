@@ -1,0 +1,140 @@
+/********* CLASES PARAMÉTRICAS *******/
+  /** Fuentes **/
+.formato(){
+    font-size: @tam_base_fuente_em ;
+    padding: @padding_general;
+    width: 100%;
+}
+
+.formato_accesibilidad(){
+    font-size: @tam_base_fuente_em_accesibilidad ;
+    padding: @padding_general;
+    width: 100%;
+}
+
+.formato_texto(@color,@font_style,@font_weight){
+    color:@color;
+    font-style: @font_style;
+    font-weight:@font_weight;
+}
+
+  /** Estructura **/
+.colx(@num_columnas; @ancho_hueco: 100%){
+    @col_bruto: @ancho_hueco/@num_columnas;
+
+
+    width: @col_bruto * 0.9 ;    
+    margin-right: @col_bruto*0.1;
+    float: left;
+    min-height: 1px;
+}
+
+  /** Listas **/
+.lista(@bg_color,@bg_color_h,@color, @bd_color){
+    padding: 0px;
+
+    &>li{
+
+        list-style: none;
+
+        a{
+            display: block;
+            font-size: @tam_fuente_l;
+            color: @color;
+            padding: @padding_m;
+            text-decoration: none;
+            color: @color;
+
+            
+            .efectoFuturistico(@color_fondo_cabpie,@color_primario,-90px);
+        }
+        
+    }
+}
+
+  /** Formularios **/
+.input(@bg_color, @bd_color, @color){
+    background-color: @bg_color;
+    border: 1px solid @bd_color;
+    color: @color;
+    padding: @padding_s;
+    font-weight: normal;
+    line-height: 1.428571429;
+    vertical-align: middle;
+    
+    .bordeRedondeado(5px);
+}
+
+  /** Botones **/
+.botonColor(@color1, @color2){
+    background: @color1;
+    &:hover,&:focus{
+        background: @color2;
+    }
+}
+    
+    
+  /*Otros*/
+.efectoFuturistico(@color1, @color2, @desp){
+    background: url(@url_imagen_boton) repeat-x scroll 0 @desp @color1;
+    .transicion(all 0.5s ease);
+    &:hover,&:focus{
+        background: url(@url_imagen_boton) repeat-x scroll 0 0px @color2;
+    }
+} 
+ 
+.bordeRedondeado(@borde){
+    -webkit-border-radius: @borde;
+    -moz-border-radius: @borde;
+    border-radius: @borde;
+}
+
+.box_shadow(@arg){
+ -webkit-box-shadow:@arg;
+   -moz-box-shadow:@arg;
+        box-shadow:@arg;   
+    
+}
+  
+.transicion(@transition) {
+  -webkit-transition: @transition;
+     -moz-transition: @transition;
+       -o-transition: @transition;
+          transition: @transition;
+}
+
+.transicion(@pa1,@pa2) {
+  -webkit-transition: @pa1,@pa2;
+     -moz-transition: @pa1,@pa2;
+       -o-transition: @pa1,@pa2;
+          transition: @pa1,@pa2;
+}
+
+.zoom(@cuanto){
+    transform : scale(@cuanto);
+    -moz-transform : scale(@cuanto); /* Firefox */
+    -webkit-transform : scale(@cuanto); /* Chrome - Safari */
+    -o-transform : scale(@cuanto); /* Opera */
+    -ms-transform : scale(@cuanto); /* IE9 */
+} 
+
+.efecto_borde_color(@tam_borde,@color){
+  border-bottom: @tam_borde solid darken(@color,25%);
+  &:hover{  border-bottom: @tam_borde solid lighten(@color,5%);  }
+}
+
+.efecto_borde_color_left(@tam_borde,@color){
+  border-left: @tam_borde solid darken(@color,25%);
+  &:hover{  border-left: @tam_borde solid lighten(@color,5%);  }
+}
+
+.glow(@color){
+    .transicion(all 0.4s ease);
+    &:focus{
+
+        border: 1px solid @color_compl;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px fadeout(@color, 30%), 0 0 13px fadeout(@color, 30%);
+        box-shadow: inset 0 1px 1px fadeout(@color, 30%), 0 0 13px fadeout(@color, 30%);
+    }
+}
